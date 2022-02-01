@@ -20,7 +20,7 @@ app.use(express.json());
 
 
 // connection à la base de données Mongoose et gestion de la connection
-mongoose.connect('mongodb+srv://Jess:Spartacus131187@cluster0.kmwba.mongodb.net/Projet6?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://Jess:Spartacus131187@cluster0.kmwba.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
