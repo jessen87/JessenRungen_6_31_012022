@@ -12,6 +12,7 @@ const helmet = require('helmet');
 
 const saucesRoutes = require('./routes/sauces');
 const userRoutes = require('./routes/user');
+const { env } = require('process');
 
 mongoose.connect(`mongodb+srv://Jess:Spartacus131187@cluster0.kmwba.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,  
 {   useNewUrlParser: true,
@@ -20,15 +21,15 @@ mongoose.connect(`mongodb+srv://Jess:Spartacus131187@cluster0.kmwba.mongodb.net/
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 const app = express();
-
-app.use(helmet());// Pour sécuriser l'app
+app.use(helmet());
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
-  });
+  }); 
+  
 
 app.use (bodyParser.json()); // Il va transformer le corps de la requête en objet JS
 
