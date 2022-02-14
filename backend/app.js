@@ -14,7 +14,7 @@ const saucesRoutes = require('./routes/sauces');
 const userRoutes = require('./routes/user');
 const { env } = require('process');
 
-mongoose.connect(`mongodb+srv://Jess:Spartacus131187@cluster0.kmwba.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,  
+mongoose.connect(process.env.SECRET_DB ,  
 {   useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
