@@ -21,15 +21,14 @@ mongoose.connect(process.env.SECRET_DB ,
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 const app = express();
-app.use(helmet());
+app.use(helmet());// Pour sécuriser l'app
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
-  }); 
-  
+  });
 
 app.use (bodyParser.json()); // Il va transformer le corps de la requête en objet JS
 
